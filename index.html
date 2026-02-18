@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Roshni 🎂</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary:     #d946a6;
+      --primary-dark:#b4358a;
+      --secondary:   #f472b6;
+      --accent:      #fbbf24;
+      --accent-light:#fde68a;
+      --cream:       #fffbf5;
+      --text-dark:   #2d1520;
+      --text-mid:    #7a3b5c;
+      --glow:        rgba(217, 70, 166, 0.25);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(244, 114, 182, 0.38) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(251, 191, 36, 0.28) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 80%, rgba(217, 70, 166, 0.32) 0%, transparent 50%),
+        linear-gradient(145deg, #fff9f0 0%, #fef3f8 50%, #ffe4f3 100%);
+      z-index: -2;
+      animation: bgDrift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgDrift {
+      0%   { filter: hue-rotate(0deg) brightness(1); }
+      100% { filter: hue-rotate(12deg) brightness(1.04); }
+    }
+
+    #particles-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      bottom: -60px;
+      opacity: 0;
+      animation: floatUp linear infinite;
+      user-select: none;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(0) rotate(0deg) scale(0.5); opacity: 0; }
+      8%   { opacity: 0.6; }
+      85%  { opacity: 0.35; }
+      100% { transform: translateY(-110vh) rotate(25deg) scale(1.15); opacity: 0; }
+    }
+
+    .page {
+      display: none;
+      min-height: 100vh;
+      padding: 2rem 1.25rem 3rem;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .page.active {
+      display: flex;
+      animation: pageIn 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    @keyframes pageIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: rgba(255, 251, 245, 0.86);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.75);
+      border-radius: 32px;
+      padding: 2.8rem 2.6rem 2.4rem;
+      max-width: 560px;
+      width: 100%;
+      box-shadow: 0 12px 55px var(--glow), 0 2px 10px rgba(255,255,255,0.6) inset;
+    }
+
+    .card-ribbon {
+      font-size: 0.9rem;
+      letter-spacing: 0.6em;
+      color: var(--secondary);
+      margin-bottom: 1.3rem;
+      display: block;
+      animation: ribbonPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes ribbonPulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50%       { opacity: 1; transform: scale(1.08); }
+    }
+
+    .big-icon {
+      font-size: clamp(3.5rem, 12vw, 5.5rem);
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.6rem;
+      animation: bounce 1.5s ease-in-out infinite;
+      filter: drop-shadow(0 5px 16px rgba(217,70,166,0.4));
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-12px) scale(1.08); }
+    }
+
+    .name-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 8vw, 4rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { filter: brightness(1); }
+      50%       { filter: brightness(1.15); }
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--primary-dark);
+      font-size: clamp(1.7rem, 5.8vw, 2.6rem);
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+      line-height: 1.25;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+      font-style: italic;
+      color: var(--text-mid);
+      line-height: 1.6;
+      margin: 0.8rem 0 1.8rem;
+    }
+
+    .body-text {
+      font-size: clamp(1rem, 2.8vw, 1.12rem);
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin: 1rem 0;
+    }
+
+    .gallery-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 1.5rem 0 2rem;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .photo-card {
+      background: rgba(255,255,255,0.75);
+      border: 1.5px solid rgba(244, 114, 182, 0.20);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(217,70,166,0.15);
+      animation: photoIn 0.5s cubic-bezier(0.16,1,0.3,1) both;
+    }
+
+    @keyframes photoIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .photo-wrapper {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .photo-placeholder {
+      font-size: 3rem;
+      opacity: 0.3;
+    }
+
+    .photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-caption {
+      padding: 1.2rem 1.4rem;
+      text-align: center;
+    }
+
+    .photo-caption p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    .message-scroll {
+      background: linear-gradient(145deg, rgba(255,249,245,0.92), rgba(254,243,248,0.88));
+      border: 1.5px solid rgba(251,191,36,0.35);
+      border-radius: 20px;
+      padding: 1.8rem;
+      margin: 0 auto 1.6rem;
+      max-width: 480px;
+      position: relative;
+    }
+
+    .message-scroll::before,
+    .message-scroll::after {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      color: var(--accent-light);
+      line-height: 1;
+      position: absolute;
+    }
+
+    .message-scroll::before { content: '❝'; top: -0.5rem; left: 0.7rem; }
+    .message-scroll::after  { content: '❞'; bottom: -1.2rem; right: 0.7rem; }
+
+    .message-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.08rem, 3.2vw, 1.25rem);
+      font-style: italic;
+      line-height: 1.85;
+      color: var(--text-mid);
+      text-align: left;
+    }
+
+    .message-sign {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--accent);
+      margin-top: 1.2rem;
+      display: block;
+      text-align: right;
+    }
+
+    .love-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.3rem;
+      border-radius: 50px;
+      margin-top: 0.8rem;
+      animation: fadeUp 0.6s 0.4s both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 0.85rem 2.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.2);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover::after { opacity: 1; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      box-shadow: 0 6px 26px rgba(217,70,166,0.38);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 10px 34px rgba(217,70,166,0.5);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+      color: var(--text-dark);
+      box-shadow: 0 5px 20px rgba(251,191,36,0.32);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 9px 28px rgba(251,191,36,0.45);
+    }
+
+    .page-dots {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 1.6rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--secondary);
+      opacity: 0.3;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .dot:hover { opacity: 0.6; }
+    .dot.active {
+      opacity: 1;
+      transform: scale(1.4);
+      background: var(--primary);
+    }
+
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    .footer-note {
+      margin-top: 1.5rem;
+      font-size: 0.74rem;
+      color: rgba(122,59,92,0.45);
+      font-style: italic;
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 2.2rem 1.6rem 2rem; }
+      .btn { padding: 0.75rem 1.8rem; font-size: 1.05rem; }
+      .message-scroll { padding: 1.4rem 1.3rem; }
+      .gallery-container { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="particles-bg" aria-hidden="true"></div>
+<canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+<!-- PAGE 1 -->
+<div id="page-1" class="page active">
+  <div class="card">
+    <span class="card-ribbon">🎂 &nbsp; 🎁 &nbsp; 🎉</span>
+    <span class="name-tag">from your Babu with love</span>
+    <span class="big-icon">🎂</span>
+    
+    <h1>Happy Birthday<br><span style="font-style: italic;">Roshni!</span></h1>
+    
+    <p class="subtitle">Today is your special day, and I'm so grateful to be able to celebrate it with you, jaan. 💖</p>
+
+    <div class="nav-controls">
+      <button class="btn btn-primary" onclick="showPage(2)">See Our Memories →</button>
+    </div>
+
+    <div class="page-dots">
+      <span class="dot active" onclick="showPage(1)"></span>
+      <span class="dot" onclick="showPage(2)"></span>
+      <span class="dot" onclick="showPage(3)"></span>
+    </div>
+
+    <p class="footer-note">Made with all my love for the most amazing person 🌹</p>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page-2" class="page">
+  <div class="card">
+    <span class="card-ribbon">🎂 &nbsp; 🎁 &nbsp; 🎉</span>
+    <span class="name-tag">our beautiful memories</span>
+    <span class="big-icon">📸</span>
+
+    <h2>Some of my favorite moments with you</h2>
+    <p class="body-text">Every picture tells a story of how much you mean to me. 🥰</p>
+
+    <div class="gallery-container" id="gallery"></div>
+
+    <div class="nav-controls">
+      <button class="btn btn-secondary" onclick="showPage(1)">← Back</button>
+      <button class="btn btn-primary" onclick="showPage(3)">Read My Message →</button>
+    </div>
+
+    <div class="page-dots">
+      <span class="dot" onclick="showPage(1)"></span>
+      <span class="dot active" onclick="showPage(2)"></span>
+      <span class="dot" onclick="showPage(3)"></span>
+    </div>
+
+    <p class="footer-note">Made with all my love for the most amazing person 🌹</p>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page-3" class="page">
+  <div class="card">
+    <span class="card-ribbon">🎂 &nbsp; 🎁 &nbsp; 🎉</span>
+    <span class="name-tag">my birthday wish for you</span>
+    <span class="big-icon">🌹</span>
+
+    <h2>Happy Birthday, meri jaan</h2>
+
+    <div class="message-scroll">
+      <p class="message-text">Happy Birthday meri jaan, and I wish that I'll be there with you on your next one. You're the best thing that has ever happened to me, and I wish we see many more of your birthdays in upcoming years with better celebrations. I love you the most jaan and I always will.</p>
+      <span class="message-sign">— Your Abdullah ♥</span>
+    </div>
+
+    <span class="love-badge">♥ Forever yours, Roshni</span>
+
+    <div class="nav-controls">
+      <button class="btn btn-secondary" onclick="showPage(2)">← Back</button>
+      <button class="btn btn-primary" onclick="showPage(1)">🎂 Celebrate Again</button>
+    </div>
+
+    <div class="page-dots">
+      <span class="dot" onclick="showPage(1)"></span>
+      <span class="dot" onclick="showPage(2)"></span>
+      <span class="dot active" onclick="showPage(3)"></span>
+    </div>
+
+    <p class="footer-note">Made with all my love for the most amazing person 🌹</p>
+  </div>
+</div>
+
+<script>
+  /* ═══════════════════════════════════════════════════════
+     📸 HOW TO ADD YOUR PHOTOS (VERY IMPORTANT - READ THIS!)
+     ═══════════════════════════════════════════════════════
+     
+     You DON'T upload photos while using the site.
+     Instead, you need to ADD IMAGE URLS to this code below.
+     
+     STEP 1: Upload your photos to the internet
+     ────────────────────────────────────────────────────
+     Option A: Use Imgur (easiest)
+       1. Go to imgur.com
+       2. Click "New post" 
+       3. Upload your photo
+       4. Right-click the image → "Copy image address"
+       5. Paste that URL in the 'url' field below
+     
+     Option B: Use Google Photos
+       1. Upload photo to Google Photos
+       2. Open the photo → Click share icon
+       3. Click "Create link" → Copy the link
+       4. Paste in the 'url' field below
+     
+     Option C: Use your own hosting
+       - If you know how to host files, use your own URL
+     
+     STEP 2: Edit the PHOTOS array below
+     ────────────────────────────────────────────────────
+     Replace the empty url: "" with your actual image URL
+     Like this: url: "https://i.imgur.com/abc123.jpg"
+     
+     STEP 3: Save this HTML file and open in browser
+     ────────────────────────────────────────────────────
+  */
+
+  const PHOTOS = [
+    {
+      url: "https://photos.app.goo.gl/HtzF8FLePByWhqXy5",  // ← PASTE YOUR FIRST IMAGE URL HERE (between the quotes)
+      caption: "Kl ki tarah is din b aase batmeezi ki thi humne aapne tb humko maaf krdia tha I hope abhi b krdengi."
+    },
+    {
+      url: "https://photos.app.goo.gl/QBjbpYzwqiGBaVab7",  // ← PASTE YOUR SECOND IMAGE URL HERE
+      caption: "I love how you look so pretty in this one, but more than that, I love the happiness in your eyes. You deserve all the joy in the world, Roshni."
+    },
+    {
+      url: "https://photos.app.goo.gl/tLHMaiVnLPCttHUE6",  // ← PASTE YOUR THIRD IMAGE URL HERE
+      caption: "Literally our cutest photo together, couldn't resist adding this one. Every moment with you is a treasure, Roshni."
+    },
+    // Want more photos? Copy the format above:
+    // {
+    //   url: "YOUR_IMAGE_URL_HERE",
+    //   caption: "Your caption here..."
+    // },
+  ];
+
+  /* ═══════════════════════════════════════════════════════
+     END OF PHOTO SECTION - Rest is automatic code
+     ═══════════════════════════════════════════════════════ */
+
+  // Build gallery
+  const gallery = document.getElementById('gallery');
+  PHOTOS.forEach((photo, i) => {
+    const card = document.createElement('div');
+    card.className = 'photo-card';
+    card.style.animationDelay = `${0.15 + i * 0.12}s`;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'photo-wrapper';
+
+    if (photo.url && photo.url.trim() !== '') {
+      const img = document.createElement('img');
+      img.src = photo.url;
+      img.alt = `Memory ${i + 1}`;
+      img.className = 'photo-img';
+      wrapper.appendChild(img);
+    } else {
+      const placeholder = document.createElement('div');
+      placeholder.className = 'photo-placeholder';
+      placeholder.textContent = '📷';
+      wrapper.appendChild(placeholder);
+    }
+
+    const caption = document.createElement('div');
+    caption.className = 'photo-caption';
+    const p = document.createElement('p');
+    p.textContent = photo.caption;
+    caption.appendChild(p);
+
+    card.appendChild(wrapper);
+    card.appendChild(caption);
+    gallery.appendChild(card);
+  });
+
+  // Page navigation
+  let currentPageNum = 1;
+
+  function showPage(pageNum) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    
+    // Show selected page
+    document.getElementById(`page-${pageNum}`).classList.add('active');
+    currentPageNum = pageNum;
+
+    // Update dots on all pages
+    document.querySelectorAll('.page-dots').forEach(container => {
+      container.querySelectorAll('.dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === pageNum - 1);
+      });
+    });
+
+    // Fire confetti on page 3
+    if (pageNum === 3) {
+      setTimeout(() => {
+        launchConfetti();
+        setTimeout(launchConfetti, 900);
+      }, 300);
+    }
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' && currentPageNum < 3) showPage(currentPageNum + 1);
+    if (e.key === 'ArrowLeft' && currentPageNum > 1) showPage(currentPageNum - 1);
+  });
+
+  // Floating particles
+  const particlesContainer = document.getElementById('particles-bg');
+  const emojis = ['🎂','🎁','🎉','🎈','✨','💕','🌟','🎊','💖','🌸'];
+
+  function spawnParticle() {
+    const p = document.createElement('span');
+    p.className = 'particle';
+    p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    p.style.left = `${Math.random() * 100}%`;
+    const dur = 9 + Math.random() * 10;
+    p.style.fontSize = `${0.9 + Math.random() * 1.4}rem`;
+    p.style.animationDuration = `${dur}s`;
+    p.style.animationDelay = `${Math.random() * -dur}s`;
+    particlesContainer.appendChild(p);
+    setTimeout(() => p.remove(), (dur + 1) * 1000);
+  }
+
+  for (let i = 0; i < 22; i++) spawnParticle();
+  setInterval(spawnParticle, 1600);
+
+  // Confetti
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  const COLORS = ['#d946a6','#f472b6','#fbbf24','#fde68a','#ff8fa3','#fff','#ffd5e5'];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  function launchConfetti() {
+    const pieces = Array.from({ length: 180 }, () => ({
+      x: Math.random() * canvas.width,
+      y: -10 - Math.random() * 80,
+      w: 8 + Math.random() * 10,
+      h: 5 + Math.random() * 6,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      vx: (Math.random() - 0.5) * 5,
+      vy: 2 + Math.random() * 4,
+      rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.22,
+      alpha: 1,
+    }));
+
+    (function tick() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let alive = false;
+      pieces.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.09;
+        p.rot += p.rotV;
+        if (p.y > canvas.height + 25) p.alpha -= 0.05;
+        if (p.alpha > 0) alive = true;
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, p.alpha);
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      });
+      if (alive) requestAnimationFrame(tick);
+      else ctx.clearRect(0, 0, canvas.width, canvas.height);
+    })();
+  }
+
+  // Launch confetti on load
+  setTimeout(() => {
+    launchConfetti();
+    setTimeout(launchConfetti, 1200);
+  }, 600);
+</script>
+</body>
+</html>
